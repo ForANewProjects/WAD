@@ -1,0 +1,20 @@
+<form class="max-w-sm mx-auto" (ngSubmit)="create(song); $event.preventDefault()">
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-500" for="name">Name</label>
+    <input class="border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" type="text" name="name" [(ngModel)]="song.name" required/>
+
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-500" for="durationInSeconds">Duration (in seconds)</label>
+    <input class="border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" type="number" name="durationInSeconds" [(ngModel)]="song.durationInSeconds" required/>
+
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-500" for="album">Album</label>
+    <select class="border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" class="form-control" id="album" name="album" [(ngModel)]="song.album">
+        <option *ngFor="let album of albums" [ngValue]="album">{{album.albumName}}</option>
+    </select>
+
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-500" for="artistName">Artist Name</label>
+    <input class="border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" type="text" name="artistName" [(ngModel)]="song.artistName" required/>
+
+    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-blue-500" for="genre">Genre</label>
+    <input class="border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" type="text" name="genre" [(ngModel)]="song.genre" required/>
+
+    <button priority="submit">Submit</button>
+</form>
